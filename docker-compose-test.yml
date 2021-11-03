@@ -1,25 +1,25 @@
 version: "3"
 services:
-  dev:
+  test:
     image: adamandkyoatcodesmith/mm-dev
-    container_name: 'mm-dev-hot'
+    container_name: 'mm-test'
     ports:
-      - "8080:8080"
+      - "3000:3000"
     volumes:
       - .:/usr/src/app
       - node_modules:/usr/src/app/node_modules
-    command: npm run dev:hot
+    command: npm run test
     depends_on:
-      - postgres-db
-  postgres-db:
+      - postgres-db-test
+  postgres-db-test:
     image: adamandkyoatcodesmith/mm-postgres
-    container_name: 'mm-database'
+    container_name: 'mm-test-database'
     environment:
       - POSTGRES_PASSWORD=admin
       - POSTGRES_USER=mmadmin
       - POSTGRES_DB=mmdb
     volumes:
-      - dev-db-volume:/var/lib/postgresql/data
+      - test-db-volume:/var/lib/postgresql/data
 volumes:
   node_modules: {}
-  dev-db-volume: {}
+  test-db-volume: {}
