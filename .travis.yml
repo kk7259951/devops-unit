@@ -14,7 +14,7 @@ env:
   global: 
     - PATH=/opt/python/3.7.1/bin:$PATH
 deploy: 
-  provider: key
+  provider: script
   skip_cleanup: true
   on: 
     branch: master
