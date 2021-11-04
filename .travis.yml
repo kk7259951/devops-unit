@@ -18,4 +18,3 @@ deploy:
   on: 
     branch: master
   script: sh $TRAVIS_BUILD_DIR/scripts/deploy.sh
-  
